@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 REPO="infraestruturadevops"
-PORT="8080"
+PORT="6080"
 IMAGE_NAME=$(basename "$PWD")
 TAG=`git rev-parse --short HEAD`
 CONTAINER="${IMAGE_NAME}"
@@ -18,7 +18,7 @@ docker push "${REPO}/${IMAGE_NAME}:${TAG}"
 docker push "${REPO}/${IMAGE_NAME}:latest"
 
 echo "RUN CONTAINER"
-#docker run -p 6080:6080 "${IMAGE_NAME}:latest"
+#docker run -p ${PORT}:${PORT} "${IMAGE_NAME}:latest"
 
 #echo "STOP"
 #docker stop ${CONTAINER}
